@@ -32,7 +32,7 @@ function MarqueeRow({ text, reverse = false }: { text: string; reverse?: boolean
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee-left 80s linear infinite;
+          animation: marquee-left 78s  linear infinite;
         }
         .marquee-track.marquee-reverse {
           animation-name: marquee-right;
