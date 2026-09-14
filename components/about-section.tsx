@@ -21,7 +21,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, ease: "easeOut" }}
-          className="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
+          className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
         >
           Saya Rizki Krisna Santika, siswa jurusan Teknik Jaringan Komputer dan Telekomunikasi
           di SMK PGRI Subang. Ketertarikan saya terbagi di dua dunia yang saling melengkapi:
@@ -33,7 +33,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
-          className="mt-6 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
+          className="mt-6 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
         >
           Di sekolah saya belajar konfigurasi router, switch, dan simulasi jaringan lewat Cisco
           Packet Tracer, sementara di luar jam sekolah saya menghabiskan waktu bereksperimen
@@ -45,7 +45,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
-          className="mt-6 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
+          className="mt-6 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
         >
           Saya percaya cara terbaik untuk belajar adalah dengan membangun sesuatu yang nyata,
           gagal, memperbaikinya, lalu mengulanginya lagi. Ke depannya saya ingin memperdalam
