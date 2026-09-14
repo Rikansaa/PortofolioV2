@@ -7,7 +7,7 @@ export default function ResponsiveRobot() {
   const [showRobot, setShowRobot] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
     setShowRobot(mediaQuery.matches);
 
     const handleChange = (event: MediaQueryListEvent) => {
