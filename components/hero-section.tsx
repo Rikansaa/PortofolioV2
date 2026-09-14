@@ -46,7 +46,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="relative hidden flex-1 md:block"
+          className="relative hidden flex-1 lg:block"
         >
           <ResponsiveRobot />
         </motion.div>
