@@ -4,7 +4,7 @@
 
 @theme {
   --color-surface-light: #f7f7f8;
-  --color-surface-dark: #08090a;
+    --color-surface-dark: #181818;
   --color-accent: #27272a;
   --color-accent-soft: #71717a;
   --font-display: var(--font-space), sans-serif;
