@@ -65,7 +65,7 @@ export default function Navbar() {
             aria-label="toggle menu"
             className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10 md:hidden"
           >
-            <span className="material-symbols-outlined">{menuOpen ? "close" : "menu"}</span>
+            <span className="material-symbols-outlined text-neutral-800 dark:text-white">{menuOpen ? "close" : "menu"}</span>
           </button>
         </div>
       </div>
