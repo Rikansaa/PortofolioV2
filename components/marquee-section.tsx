@@ -1,81 +1,69 @@
 "use client";
 
+import { useRef } from "react";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity
+} from "framer-motion";
+
 const LINE_ONE = "Hello, I'm Rizki";
 const LINE_TWO = "Network Engineer Full Stack Developer";
 
-function MarqueeRow({ text, reverse = false }: { text: string; reverse?: boolean }) {
-  const items = Array.from({ length: 8 });
+function wrapValue(min: number, max: number, v: number) {
+  const range = max - min;
+  return ((((v - min) % range) + range) % range) + min;
+}
+
+function ParallaxRow({ text, baseVelocity = 3 }: { text: string; baseVelocity?: number }) {
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, { damping: 50, stiffness: 400 });
+
+  const velocityFactor = useTransform(smoothVelocity, [-2000, 0, 2000], [-5, 0, 5], {
+    clamp: false
+  });
+
+  const skewX = useSpring(
+    useTransform(smoothVelocity, [-2000, 0, 2000], [-10, 0, 10], { clamp: true }),
+    { damping: 15, stiffness: 220 }
+  );
+
+  const x = useTransform(baseX, (v) => `${wrapValue(-20, -45, v)}%`);
+
+  const directionFactor = useRef(1);
+  useAnimationFrame((_, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1;
+    }
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    baseX.set(baseX.get() + moveBy);
+  });
+
+  const items = Array.from({ length: 4 });
 
   return (
-    <div className="marquee-viewport">
-      <div className={"marquee-track" + (reverse ? " marquee-reverse" : "")}>
-        <div className="marquee-group">
-          {items.map((_, index) => (
-            <span key={"a-" + index} className="marquee-item">
-              {text}
-            </span>
-          ))}
-        </div>
-        <div className="marquee-group" aria-hidden="true">
-          {items.map((_, index) => (
-            <span key={"b-" + index} className="marquee-item">
-              {text}
-            </span>
-          ))}
-        </div>
-      </div>
-      <style jsx>{`
-        .marquee-viewport {
-          overflow: hidden;
-          width: 100%;
-        }
-        .marquee-track {
-          display: flex;
-          width: max-content;
-          animation: marquee-left 78s  linear infinite;
-        }
-        .marquee-track.marquee-reverse {
-          animation-name: marquee-right;
-        }
-        .marquee-group {
-          display: flex;
-          flex-shrink: 0;
-          align-items: center;
-        }
-        .marquee-item {
-          margin: 0 1.5rem;
-          white-space: nowrap;
-          font-weight: 900;
-          letter-spacing: -0.02em;
-          color: rgb(212 212 216);
-          font-size: 2.25rem;
-          line-height: 1;
-        }
-        :global(.dark) .marquee-item {
-          color: rgb(63 63 70);
-        }
-        @media (min-width: 640px) {
-          .marquee-item {
-            font-size: 3.75rem;
-          }
-        }
-        @keyframes marquee-left {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-50%);
-          }
-        }
-        @keyframes marquee-right {
-          from {
-            transform: translateX(-50%);
-          }
-          to {
-            transform: translateX(0);
-          }
-        }
-      `}</style>
+    <div className="overflow-hidden">
+      <motion.div className="flex w-max" style={{ x, skewX }}>
+        {items.map((_, index) => (
+          <span
+            key={index}
+            className="mx-6 whitespace-nowrap text-4xl font-black tracking-tight text-neutral-300 dark:text-neutral-800 sm:text-6xl"
+          >
+            {text}
+          </span>
+        ))}
+      </motion.div>
     </div>
   );
 }
@@ -83,9 +71,9 @@ function MarqueeRow({ text, reverse = false }: { text: string; reverse?: boolean
 export default function MarqueeSection() {
   return (
     <section className="overflow-hidden border-y border-neutral-200 py-8 dark:border-neutral-800">
-      <MarqueeRow text={LINE_ONE} />
+      <ParallaxRow text={LINE_ONE} baseVelocity={3} />
       <div className="mt-3">
-        <MarqueeRow text={LINE_TWO} reverse />
+        <ParallaxRow text={LINE_TWO} baseVelocity={-3} />
       </div>
     </section>
   );
