@@ -1,29 +1,32 @@
 "use client";
 
-import { useRef } from "react";
-import { useAnimate } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "@/context/theme-context";
 
 const BASE_SIZE = 24;
+const DARK_COLOR = "#181818";
+const LIGHT_COLOR = "#ffffff";
+
+type Phase = "travel" | "cover" | "fade";
+
+interface RunState {
+  id: number;
+  color: string;
+  bottomOffset: number;
+  coverScale: number;
+}
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
-  const [scope, animate] = useAnimate<HTMLDivElement>();
-  const isAnimating = useRef(false);
+  const [run, setRun] = useState<RunState | null>(null);
+  const [phase, setPhase] = useState<Phase>("travel");
 
-  const handleClick = async () => {
-    if (isAnimating.current) return;
-    isAnimating.current = true;
+  const handleClick = () => {
+    if (run) return;
 
     const nextTheme = theme === "light" ? "dark" : "light";
-    const circleColor = nextTheme === "dark" ? "#000000" : "#ffffff";
-
-    const el = scope.current;
-    if (!el) {
-      toggleTheme();
-      isAnimating.current = false;
-      return;
-    }
+    const color = nextTheme === "dark" ? DARK_COLOR : LIGHT_COLOR;
 
     const vw = window.innerWidth;
     const vh = window.innerHeight;
@@ -31,23 +34,17 @@ export default function ThemeToggle() {
     const coverScale = (diagonal / BASE_SIZE) * 1.15;
     const bottomOffset = vh / 2 + BASE_SIZE * 2;
 
-    await animate(
-      el,
-      { y: bottomOffset, scale: 0.4, opacity: 1, backgroundColor: circleColor },
-      { duration: 0 }
-    );
-
-    await animate(el, { y: 0 }, { duration: 0.35, ease: [0.65, 0, 0.35, 1] });
-
-    await animate(el, { scale: coverScale }, { duration: 0.5, ease: [0.76, 0, 0.24, 1] });
-
-    toggleTheme();
-    await new Promise((resolve) => setTimeout(resolve, 150));
-
-    await animate(el, { opacity: 0 }, { duration: 0.35 });
-
-    isAnimating.current = false;
+    setPhase("travel");
+    setRun({ id: Date.now(), color, bottomOffset, coverScale });
   };
+
+  const target =
+    run &&
+    (phase === "travel"
+      ? { y: 0, scale: 0.4, opacity: 1 }
+      : phase === "cover"
+        ? { y: 0, scale: run.coverScale, opacity: 1 }
+        : { y: 0, scale: run.coverScale, opacity: 0 });
 
   return (
     <>
@@ -61,22 +58,42 @@ export default function ThemeToggle() {
         </span>
       </button>
 
-      <div
-        ref={scope}
-        style={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          width: BASE_SIZE,
-          height: BASE_SIZE,
-          marginLeft: -BASE_SIZE / 2,
-          marginTop: -BASE_SIZE / 2,
-          borderRadius: "9999px",
-          opacity: 0,
-          pointerEvents: "none",
-          zIndex: 9999
-        }}
-      />
+      <AnimatePresence>
+        {run && target && (
+          <motion.div
+            key={run.id}
+            initial={{ y: run.bottomOffset, scale: 0.4, opacity: 1 }}
+            animate={target}
+            transition={{
+              duration: phase === "travel" ? 0.35 : phase === "cover" ? 0.5 : 0.35,
+              ease: phase === "fade" ? "easeInOut" : [0.76, 0, 0.24, 1]
+            }}
+            onAnimationComplete={() => {
+              if (phase === "travel") {
+                setPhase("cover");
+              } else if (phase === "cover") {
+                toggleTheme();
+                setTimeout(() => setPhase("fade"), 150);
+              } else if (phase === "fade") {
+                setRun(null);
+              }
+            }}
+            style={{
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              width: BASE_SIZE,
+              height: BASE_SIZE,
+              marginLeft: -BASE_SIZE / 2,
+              marginTop: -BASE_SIZE / 2,
+              borderRadius: "9999px",
+              backgroundColor: run.color,
+              pointerEvents: "none",
+              zIndex: 9999
+            }}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
