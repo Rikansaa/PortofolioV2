@@ -11,7 +11,7 @@ import {
   useVelocity
 } from "framer-motion";
 
-const LINE_ONE = "Hello, I'm Rizki";
+const LINE_ONE = "Hello, I'm Rizki Hello, I'm Rizki Hello, I'm Rizki Hello, I'm Rizki";
 const LINE_TWO = "Network Engineer Full Stack Developer";
 
 function wrapValue(min: number, max: number, v: number) {
