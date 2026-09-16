@@ -30,8 +30,8 @@ function ParallaxRow({ text, baseVelocity = 3 }: { text: string; baseVelocity?: 
   });
 
   const skewX = useSpring(
-    useTransform(smoothVelocity, [-2000, 0, 2000], [-10, 0, 10], { clamp: true }),
-    { damping: 25, stiffness: 90, mass: 0.6 }
+    useTransform(smoothVelocity, [-800, 0, 800], [-16, 0, 16], { clamp: true }),
+    { damping: 20, stiffness: 120, mass: 0.5 }
   );
 
   const x = useTransform(baseX, (v) => `${wrapValue(-20, -45, v)}%`);
