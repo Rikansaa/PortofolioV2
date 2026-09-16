@@ -53,47 +53,52 @@ export default function ThemeToggle() {
         aria-label="Ganti tema warna"
         className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10"
       >
-        <span className="material-symbols-outlined text-[20px] text-neutral-800 dark:text-white">
+        <span className="material-symbols-outlined text-[20px] text-neutral-800 dark:text-white!">
           {theme === "dark" ? "light_mode" : "dark_mode"}
         </span>
       </button>
 
-      <AnimatePresence>
-        {run && target && (
-          <motion.div
-            key={run.id}
-            initial={{ y: run.bottomOffset, scale: 0.4, opacity: 1 }}
-            animate={target}
-            transition={{
-              duration: phase === "travel" ? 0.35 : phase === "cover" ? 0.5 : 0.35,
-              ease: phase === "fade" ? "easeInOut" : [0.76, 0, 0.24, 1]
-            }}
-            onAnimationComplete={() => {
-              if (phase === "travel") {
-                setPhase("cover");
-              } else if (phase === "cover") {
-                toggleTheme();
-                setTimeout(() => setPhase("fade"), 150);
-              } else if (phase === "fade") {
-                setRun(null);
-              }
-            }}
-            style={{
-              position: "fixed",
-              top: "50%",
-              left: "50%",
-              width: BASE_SIZE,
-              height: BASE_SIZE,
-              marginLeft: -BASE_SIZE / 2,
-              marginTop: -BASE_SIZE / 2,
-              borderRadius: "9999px",
-              backgroundColor: run.color,
-              pointerEvents: "none",
-              zIndex: 9999
-            }}
-          />
-        )}
-      </AnimatePresence>
+      <div
+        style={{
+          position: "fixed",
+          inset: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          pointerEvents: "none",
+          zIndex: 9999
+        }}
+      >
+        <AnimatePresence>
+          {run && target && (
+            <motion.div
+              key={run.id}
+              initial={{ y: run.bottomOffset, scale: 0.4, opacity: 1 }}
+              animate={target}
+              transition={{
+                duration: phase === "travel" ? 0.35 : phase === "cover" ? 0.5 : 0.35,
+                ease: phase === "fade" ? "easeInOut" : [0.76, 0, 0.24, 1]
+              }}
+              onAnimationComplete={() => {
+                if (phase === "travel") {
+                  setPhase("cover");
+                } else if (phase === "cover") {
+                  toggleTheme();
+                  setTimeout(() => setPhase("fade"), 150);
+                } else if (phase === "fade") {
+                  setRun(null);
+                }
+              }}
+              style={{
+                width: BASE_SIZE,
+                height: BASE_SIZE,
+                borderRadius: "9999px",
+                backgroundColor: run.color
+              }}
+            />
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 }
