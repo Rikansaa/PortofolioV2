@@ -91,7 +91,7 @@ export default function Navbar() {
               className="glass-panel relative z-50 mt-3 flex flex-col gap-1 rounded-2xl p-3 text-center md:hidden"
             >
               {links.map((link) => (
-                
+                <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
