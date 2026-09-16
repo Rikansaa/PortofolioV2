@@ -23,7 +23,7 @@ function ParallaxRow({ text, baseVelocity = 3 }: { text: string; baseVelocity?: 
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, { damping: 50, stiffness: 400 });
+  const smoothVelocity = useSpring(scrollVelocity, { damping: 60, stiffness: 150, mass: 0.5 });
 
   const velocityFactor = useTransform(smoothVelocity, [-2000, 0, 2000], [-5, 0, 5], {
     clamp: false
@@ -31,7 +31,7 @@ function ParallaxRow({ text, baseVelocity = 3 }: { text: string; baseVelocity?: 
 
   const skewX = useSpring(
     useTransform(smoothVelocity, [-2000, 0, 2000], [-10, 0, 10], { clamp: true }),
-    { damping: 15, stiffness: 220 }
+    { damping: 25, stiffness: 90, mass: 0.6 }
   );
 
   const x = useTransform(baseX, (v) => `${wrapValue(-20, -45, v)}%`);
