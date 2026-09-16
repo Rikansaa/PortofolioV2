@@ -16,8 +16,7 @@ export default function ThemeToggle() {
     isAnimating.current = true;
 
     const nextTheme = theme === "light" ? "dark" : "light";
-    const openColor = nextTheme === "dark" ? "#000000" : "#ffffff";
-    const closeColor = nextTheme === "dark" ? "#ffffff" : "#000000";
+    const circleColor = nextTheme === "dark" ? "#000000" : "#ffffff";
 
     const el = scope.current;
     if (!el) {
@@ -34,7 +33,7 @@ export default function ThemeToggle() {
 
     await animate(
       el,
-      { y: bottomOffset, scale: 0.4, opacity: 1, backgroundColor: openColor },
+      { y: bottomOffset, scale: 0.4, opacity: 1, backgroundColor: circleColor },
       { duration: 0 }
     );
 
@@ -43,11 +42,9 @@ export default function ThemeToggle() {
     await animate(el, { scale: coverScale }, { duration: 0.5, ease: [0.76, 0, 0.24, 1] });
 
     toggleTheme();
-    await new Promise((resolve) => setTimeout(resolve, 90));
+    await new Promise((resolve) => setTimeout(resolve, 150));
 
-    await animate(el, { backgroundColor: closeColor }, { duration: 0.01 });
-    await animate(el, { scale: 0.4, y: bottomOffset }, { duration: 0.5, ease: [0.76, 0, 0.24, 1] });
-    await animate(el, { opacity: 0 }, { duration: 0.15 });
+    await animate(el, { opacity: 0 }, { duration: 0.35 });
 
     isAnimating.current = false;
   };
