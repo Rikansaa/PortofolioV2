@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import ThemeToggle from "@/components/theme-toggle";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -57,13 +58,16 @@ export default function Navbar() {
             </motion.a>
           ))}
         </nav>
-        <button
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="toggle menu"
-          className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10 md:hidden"
-        >
-          <span className="material-symbols-outlined">{menuOpen ? "close" : "menu"}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="toggle menu"
+            className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10 md:hidden"
+          >
+            <span className="material-symbols-outlined">{menuOpen ? "close" : "menu"}</span>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -87,7 +91,7 @@ export default function Navbar() {
               className="glass-panel relative z-50 mt-3 flex flex-col gap-1 rounded-2xl p-3 text-center md:hidden"
             >
               {links.map((link) => (
-                <a
+                
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
