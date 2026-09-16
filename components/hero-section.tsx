@@ -52,7 +52,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="pointer-events-auto absolute right-0 top-2 bottom-0 z-10 hidden w-[280px] overflow-hidden md:block lg:w-[420px] xl:w-[560px]">
+      <div className="pointer-events-auto absolute right-0 top-1 bottom-0 z-10 hidden w-[280px] overflow-hidden md:block lg:w-[420px] xl:w-[560px]">
         <div className="absolute inset-x-0 -top-[25%] h-[133%]">
           <LanyardScene />
         </div>
