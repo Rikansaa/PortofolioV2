@@ -66,7 +66,7 @@ export default function SkillsSection() {
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   className="flex flex-col items-center justify-center gap-2 rounded-xl glass-panel p-4 text-center"
                 >
-                  <span className="material-symbols-outlined text-2xl text-accent dark:text-accent-soft">{item.icon}</span>
+                  <span className="material-symbols-outlined text-2xl text-accent dark:text-white">{item.icon}</span>
                   <span className="text-xs font-medium">{item.name}</span>
                 </motion.div>
               ))}
