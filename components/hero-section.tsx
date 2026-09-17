@@ -16,7 +16,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
             whileHover={{ scale: 1.04 }}
-            className="mb-3 inline-block rounded-full glass-panel px-4 py-1 text-sm font-medium text-accent dark:text-accent-soft">"
+            className="mb-3 inline-block rounded-full glass-panel px-4 py-1 text-sm font-medium text-accent dark:text-white"
           >
             Siswa TJKT, SMK PGRI Subang
           </motion.p>
@@ -52,7 +52,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="pointer-events-auto absolute right-0 top-1 bottom-0 z-10 hidden w-[280px] overflow-hidden md:block lg:w-[420px] xl:w-[560px]">
+      <div className="pointer-events-auto absolute right-0 top-4 bottom-0 z-10 hidden w-[280px] overflow-hidden md:block lg:w-[420px] xl:w-[560px]">
         <div className="absolute inset-x-0 -top-[25%] h-[133%]">
           <LanyardScene />
         </div>
