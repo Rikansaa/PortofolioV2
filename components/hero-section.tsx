@@ -16,7 +16,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
             whileHover={{ scale: 1.04 }}
-            className="mb-3 inline-block rounded-full glass-panel px-4 py-1 text-sm font-medium text-accent"
+            className="mb-3 inline-block rounded-full glass-panel px-4 py-1 text-sm font-medium text-accent dark:text-accent-soft">"
           >
             Siswa TJKT, SMK PGRI Subang
           </motion.p>
