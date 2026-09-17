@@ -35,7 +35,7 @@ export default function ContactSection() {
       >
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">Kontak</p>
         <h2 className="font-display text-3xl font-bold sm:text-4xl">Hubungi Saya</h2>
-        <p className="mx-auto mt-3 max-w-lg text-neutral-600 dark:text-neutral-400">
+        <p className="mx-auto mt-3 max-w-lg text-neutral-600 dark:text-white">
           Terbuka untuk kolaborasi project, diskusi jaringan, atau sekadar menyapa.
         </p>
       </motion.div>
@@ -54,9 +54,9 @@ export default function ContactSection() {
             transition={{ duration: 0.45, delay: index * 0.06 }}
             className="flex flex-col items-center gap-2 rounded-2xl glass-panel p-6 text-center"
           >
-            <span className="material-symbols-outlined text-3xl text-accent">{method.icon}</span>
+            <span className="material-symbols-outlined text-3xl text-accent dark:text-white">{method.icon}</span>
             <span className="font-display text-sm font-semibold">{method.label}</span>
-            <span className="text-xs text-neutral-600 dark:text-neutral-400">{method.value}</span>
+            <span className="text-xs text-neutral-600 dark:text-white">{method.value}</span>
           </motion.a>
         ))}
       </div>
