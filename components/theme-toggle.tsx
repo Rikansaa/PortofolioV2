@@ -53,7 +53,10 @@ export default function ThemeToggle() {
         aria-label="Ganti tema warna"
         className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10"
       >
-        <span className="material-symbols-outlined text-[20px] text-neutral-800 dark:text-white!">
+        <span
+          className="material-symbols-outlined text-[20px]"
+          style={{ color: theme === "dark" ? "#ffffff" : "#262626" }}
+        >
           {theme === "dark" ? "light_mode" : "dark_mode"}
         </span>
       </button>
