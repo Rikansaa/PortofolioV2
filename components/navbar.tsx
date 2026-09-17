@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggle from "@/components/theme-toggle";
+import { useTheme } from "@/context/theme-context";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -15,6 +16,7 @@ const links = [
 export default function Navbar() {
   const panelRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme } = useTheme();
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const panel = panelRef.current;
@@ -65,7 +67,12 @@ export default function Navbar() {
             aria-label="toggle menu"
             className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/10 md:hidden"
           >
-            <span className="material-symbols-outlined text-neutral-800 dark:text-white!">{menuOpen ? "close" : "menu"}</span>
+            <span
+              className="material-symbols-outlined"
+              style={{ color: theme === "dark" ? "#ffffff" : "#262626" }}
+            >
+              {menuOpen ? "close" : "menu"}
+            </span>
           </button>
         </div>
       </div>
