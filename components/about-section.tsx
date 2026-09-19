@@ -8,7 +8,7 @@ export default function AboutSection() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{ once: false, margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent dark:text-white">Profil</p>
