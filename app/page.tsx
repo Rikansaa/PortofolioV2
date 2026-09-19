@@ -16,7 +16,7 @@ export default function Home() {
       <TimelineSection />
       <SkillsSection />
       <ContactSection />
-      <footer className="border-t border-black/5 py-8 text-center text-sm text-neutral-500 dark:border-white/5 dark:text-neutral-500">
+      <footer className="border-t border-black/5 py-8 text-center text-sm text-neutral-500 dark:border-white/5 dark:text-white">
         Dibuat oleh Rizki Krisna Santika, TJKT SMK PGRI Subang
       </footer>
     </main>
