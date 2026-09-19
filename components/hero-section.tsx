@@ -35,7 +35,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto mt-5 max-w-md text-neutral-600 dark:text-neutral-400 md:mx-0"
+            className="mx-auto mt-5 max-w-md text-neutral-600 dark:text-white md:mx-0"
           >
             Dikenal sebagai Rikansaa, membangun website dan tools kecil menggunakan JavaScript,
             bereksperimen dengan otomasi dan proyek jaringan komputer.
