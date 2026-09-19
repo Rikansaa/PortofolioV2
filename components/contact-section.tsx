@@ -34,7 +34,7 @@ export default function ContactSection() {
         className="mb-14 text-center"
       >
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent dark:text-white">Kontak</p>
-        <h2 className="font-display text-3xl font-bold sm:text-4xl">Hubungi Saya</h2>
+        <h2 className="font-display text-3xl font-bold dark:text-white sm:text-4xl">Hubungi Saya</h2>
         <p className="mx-auto mt-3 max-w-lg text-neutral-600 dark:text-white">
           Terbuka untuk kolaborasi project, diskusi jaringan, atau sekadar menyapa.
         </p>
@@ -49,13 +49,13 @@ export default function ContactSection() {
             rel="noreferrer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: false, margin: "-60px" }}
             whileHover={{ y: -6, scale: 1.02 }}
             transition={{ duration: 0.45, delay: index * 0.06 }}
             className="flex flex-col items-center gap-2 rounded-2xl glass-panel p-6 text-center"
           >
             <span className="material-symbols-outlined text-3xl text-accent dark:text-white">{method.icon}</span>
-            <span className="font-display text-sm font-semibold">{method.label}</span>
+            <span className="font-display text-sm font-semibold dark:text-white">{method.label}</span>
             <span className="text-xs text-neutral-600 dark:text-white">{method.value}</span>
           </motion.a>
         ))}
@@ -64,7 +64,7 @@ export default function ContactSection() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: false, margin: "-60px" }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mt-8 overflow-hidden rounded-2xl glass-panel p-2"
       >
