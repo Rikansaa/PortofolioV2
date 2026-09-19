@@ -54,7 +54,7 @@ export default function Navbar() {
               key={link.href}
               whileHover={{ y: -2 }}
               href={link.href}
-              className="text-sm font-medium text-neutral-700 transition-colors hover:text-accent dark:text-neutral-300 dark:hover:text-accent-soft"
+              className="text-sm font-medium text-neutral-700 transition-colors hover:text-accent dark:text-white dark:hover:text-accent-soft"
             >
               {link.label}
             </motion.a>
@@ -98,11 +98,11 @@ export default function Navbar() {
               className="glass-panel relative z-50 mt-3 flex flex-col gap-1 rounded-2xl p-3 text-center md:hidden"
             >
               {links.map((link) => (
-                <a
+                
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-xl px-4 py-2.5 text-sm font-medium text-neutral-700 transition-colors hover:bg-black/5 dark:text-neutral-300 dark:hover:bg-white/10"
+                  className="rounded-xl px-4 py-2.5 text-sm font-medium text-neutral-700 transition-colors hover:bg-black/5 dark:text-white dark:hover:bg-white/10"
                 >
                   {link.label}
                 </a>
