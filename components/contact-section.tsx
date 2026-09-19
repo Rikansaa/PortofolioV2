@@ -33,7 +33,7 @@ export default function ContactSection() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mb-14 text-center"
       >
-        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">Kontak</p>
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent dark:text-white">Kontak</p>
         <h2 className="font-display text-3xl font-bold sm:text-4xl">Hubungi Saya</h2>
         <p className="mx-auto mt-3 max-w-lg text-neutral-600 dark:text-white">
           Terbuka untuk kolaborasi project, diskusi jaringan, atau sekadar menyapa.
