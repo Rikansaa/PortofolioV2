@@ -11,23 +11,23 @@ export default function ProjectCard({ repo, index }: { repo: GithubRepo; index: 
       rel="noreferrer"
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: false, margin: "-60px" }}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.5, delay: index * 0.06 }}
       className="group relative flex flex-col justify-between overflow-hidden rounded-2xl glass-panel p-5 transition-shadow hover:shadow-2xl"
     >
       <div>
         <div className="mb-3 flex items-center justify-between">
-          <h3 className="font-display text-lg font-semibold">{repo.name}</h3>
-          <span className="material-symbols-outlined text-accent opacity-0 transition-opacity group-hover:opacity-100">
+          <h3 className="font-display text-lg font-semibold dark:text-white">{repo.name}</h3>
+          <span className="material-symbols-outlined text-accent dark:text-white opacity-0 transition-opacity group-hover:opacity-100">
             north_east
           </span>
         </div>
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+        <p className="text-sm text-neutral-600 dark:text-white">
           {repo.description ? repo.description : "Tidak ada deskripsi"}
         </p>
       </div>
-      <div className="mt-5 flex items-center gap-4 text-xs text-neutral-500 dark:text-neutral-500">
+      <div className="mt-5 flex items-center gap-4 text-xs text-neutral-500 dark:text-white">
         {repo.language && (
           <span className="flex items-center gap-1">
             <span className="h-2 w-2 rounded-full bg-accent" />
