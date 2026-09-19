@@ -17,13 +17,13 @@ export default function ProjectsSection() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{ once: false, margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mb-12 text-center"
       >
-        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">Portofolio</p>
-        <h2 className="font-display text-3xl font-bold sm:text-4xl">Project Saya</h2>
-        <p className="mx-auto mt-3 max-w-lg text-neutral-600 dark:text-neutral-400">
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent dark:text-white">Portofolio</p>
+        <h2 className="font-display text-3xl font-bold dark:text-white sm:text-4xl">Project Saya</h2>
+        <p className="mx-auto mt-3 max-w-lg text-neutral-600 dark:text-white">
           5 project terbaru dari akun GitHub saya, diperbarui otomatis setiap ada perubahan.
         </p>
       </motion.div>
