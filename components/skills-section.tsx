@@ -38,7 +38,7 @@ export default function SkillsSection() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mb-16 text-center"
       >
-        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">Skills and Tools</p>
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent dark:text-white">Skills and Tools</p>
         <h2 className="font-display text-3xl font-bold sm:text-4xl">Kemampuan Saya</h2>
       </motion.div>
 
