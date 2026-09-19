@@ -11,7 +11,7 @@ export default function AboutSection() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">Profil</p>
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent dark:text-white">Profil</p>
         <h2 className="font-display text-3xl font-bold sm:text-4xl">Tentang Saya</h2>
       </motion.div>
 
