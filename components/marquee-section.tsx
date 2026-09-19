@@ -58,7 +58,7 @@ function ParallaxRow({ text, baseVelocity = 3 }: { text: string; baseVelocity?: 
         {items.map((_, index) => (
           <span
             key={index}
-            className="mx-6 whitespace-nowrap text-4xl font-black tracking-tight text-neutral-300 dark:text-neutral-800 sm:text-6xl"
+            className="mx-6 whitespace-nowrap text-4xl font-black tracking-tight text-neutral-300 dark:text-neutral-500 sm:text-6xl"
           >
             {text}
           </span>
