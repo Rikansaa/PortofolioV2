@@ -11,7 +11,7 @@ export default function AboutSection() {
         viewport={{ once: false, margin: "-80px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent dark:text-white">Profil</p>
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">Profil</p>
         <h2 className="font-display text-3xl font-bold sm:text-4xl">Tentang Saya</h2>
       </motion.div>
 
@@ -19,9 +19,9 @@ export default function AboutSection() {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: false, margin: "-60px" }}
           transition={{ duration: 0.55, ease: "easeOut" }}
-          className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
+          className="text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
         >
           Saya Rizki Krisna Santika, siswa jurusan Teknik Jaringan Komputer dan Telekomunikasi
           di SMK PGRI Subang. Ketertarikan saya terbagi di dua dunia yang saling melengkapi:
@@ -31,9 +31,9 @@ export default function AboutSection() {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: false, margin: "-60px" }}
           transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
-          className="mt-6 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
+          className="mt-6 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
         >
           Di sekolah saya belajar konfigurasi router, switch, dan simulasi jaringan lewat Cisco
           Packet Tracer, sementara di luar jam sekolah saya menghabiskan waktu bereksperimen
@@ -43,9 +43,9 @@ export default function AboutSection() {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: false, margin: "-60px" }}
           transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
-          className="mt-6 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
+          className="mt-6 text-lg leading-relaxed text-neutral-600 dark:text-neutral-400"
         >
           Saya percaya cara terbaik untuk belajar adalah dengan membangun sesuatu yang nyata,
           gagal, memperbaikinya, lalu mengulanginya lagi. Ke depannya saya ingin memperdalam
