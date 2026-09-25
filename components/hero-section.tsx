@@ -43,7 +43,7 @@ export default function HeroSection({ robotSlot }: { robotSlot?: ReactNode }) {
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="relative hidden h-[600px] w-full flex-1 lg:block"
+          className="relative hidden h-[950px] w-full flex-1 lg:block"
         >
           {robotSlot}
         </motion.div>
