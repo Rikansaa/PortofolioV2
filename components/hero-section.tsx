@@ -29,7 +29,7 @@ export default function HeroSection({ robotSlot }: { robotSlot?: ReactNode }) {
           >
             Halo, saya
             <span className="block bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
-              Rizki Krisna Santika
+              Rizki
             </span>
           </motion.h1>
           <motion.p
