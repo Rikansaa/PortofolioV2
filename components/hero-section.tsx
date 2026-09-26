@@ -6,7 +6,11 @@ import type { ReactNode } from "react";
 export default function HeroSection({ robotSlot }: { robotSlot?: ReactNode }) {
   return (
     <section id="home" className="relative w-full scroll-mt-10 px-6 pb-16 pt-32 md:min-h-screen">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-8 text-center md:flex-row md:pb-0 md:text-left">
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-full lg:block lg:w-[70%] xl:w-[65%]">
+        <div className="pointer-events-auto h-full w-full">{robotSlot}</div>
+      </div>
+
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-center gap-8 text-center md:flex-row md:pb-0 md:text-left">
         <div className="flex-1">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -39,14 +43,7 @@ export default function HeroSection({ robotSlot }: { robotSlot?: ReactNode }) {
           </motion.p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="relative hidden h-[950px] w-full flex-1 lg:block"
-        >
-          {robotSlot}
-        </motion.div>
+        <div className="hidden flex-1 lg:block" />
       </div>
     </section>
   );
