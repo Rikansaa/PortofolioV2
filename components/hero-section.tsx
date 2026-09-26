@@ -27,9 +27,9 @@ export default function HeroSection({ robotSlot }: { robotSlot?: ReactNode }) {
             transition={{ duration: 0.6, delay: 0.12 }}
             className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
           >
-            Halo, saya
+            Halo,
             <span className="block bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
-              Rizki
+             Saya Rizki
             </span>
           </motion.h1>
           <motion.p
