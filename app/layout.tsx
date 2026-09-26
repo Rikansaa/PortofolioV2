@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Rizki Krisna Santika | Rikansaa",
+  title: "Portofolio",
   description: "Portofolio pribadi Rizki Krisna Santika, siswa TJKT SMK PGRI Subang"
 };
 
